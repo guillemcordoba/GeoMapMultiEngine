@@ -5,6 +5,11 @@ workbox.setConfig({
 workbox.precaching.precacheAndRoute([]);
 
 workbox.routing.registerRoute(
+  /\.(?:js|css)$/,
+  workbox.strategies.staleWhileRevalidate(),
+); 
+
+workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|svg)$/,
   workbox.strategies.staleWhileRevalidate({
     cacheName: 'images',
@@ -14,13 +19,6 @@ workbox.routing.registerRoute(
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
       }),
     ],
-  }),
-);
-
-workbox.routing.registerRoute(
-  new RegExp('https://some-fancy-api.com'),
-  workbox.strategies.networkFirst({
-    cacheName: 'api',
   }),
 );
 
