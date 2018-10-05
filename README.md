@@ -1,21 +1,5 @@
 # geomapmultiengine
 
-## Project setup
-```
-npm install
-```
+URL de deploy:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+https://guillemcordoba.github.io/GeoMapMultiEngine/dist/
