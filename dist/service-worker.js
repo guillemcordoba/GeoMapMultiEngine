@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.271fdac1a35c2156ab861d421773afc1.js"
+  "/GeoMapMultiEngine/dist/precache-manifest.7583119da1e7992d1422cef9f4d9c3ae.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "geomapmultiengine"});
