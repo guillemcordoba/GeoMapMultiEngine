@@ -1,5 +1,9 @@
 self.__precacheManifest = [
   {
+    "revision": "11e9b3de426d929e7835cb6c21fe5bb5",
+    "url": "/GeoMapMultiEngine/dist/service-worker.js"
+  },
+  {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/GeoMapMultiEngine/dist/robots.txt"
   },
