@@ -114,36 +114,11 @@ function  getTime() {
   return seconds_from_midnight
 }
 
-
-function hour_to_seconds(hour) {
-  var hours = hour[0]*10+ hour[1]
-  var minutes = hour[3]*10+ hour[4]
-  var seconds = hour[6]*10+ hour[7]
-  return seconds + 60 * (minutes + hours * 60)
-}
-
 function addTime(time_to_add) {
   var next_time = seconds_from_midnight + time_to_add
   for (route of routes)
   {
-    var freq = 0
-    for (var time in route.freq) {
-      if (hour_to_seconds(time) < seconds_from_midnight){
-        freq = route.freq[time]
-      }
-    }
-    var freq = route.freq
-    for(var now=seconds_from_midnight; now<=next_time; ++now)
-    {
-      if (now%freq == 0 )
-      {
-        wagons.push({
-          "route": route,
-          "spawned_time" : now,
-          "start": 0
-        })
-      }
-    }
+
   }
 }
 
@@ -155,25 +130,13 @@ function getRoutes(){
 
 
 function getWagons() {
-  for (var wagon of wagons){
-    var routeKey = wagon.route
-    for (var stop of routes[routeKey].stops){
-      wagon.start = ""
-      wagon.end = ""
-      if((seconds_from_midnight - wagon.spawned_time) < hour_to_seconds(stop.departure_time))
-      {
-        wagon.start = stop
-      }
-      if(wagon.end == "" && (seconds_from_midnight - wagon.spawned_time) > hour_to_seconds(stop.arrival_time) )
-      {
-        wagon.end = stop
-        wagon.time_to_arrive = stop.arrival_time - seconds_from_midnight
-        wagon.time_to_arrive = stop.arrival_time - wagon.start.departure_time
-      }
+  return
+    [{
+      "start": "1.41.1",
+      "end":  "1.41.1",
+      "route": "route1",
+      "time_to_arrive": 5,
+      "total_time": 10
     }
-    if (wagon.end == ""){
-      delete wagon
-    }
-  }
-  return wagons
+    ]
 }

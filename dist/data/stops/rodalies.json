@@ -1,0 +1,80 @@
+{
+  "71703": {
+    "﻿stop_id": "71703",
+    "stop_name": "Garraf",
+    "stop_lat": "41.253964",
+    "stop_lon": "1.902357"
+  },
+  "71704": {
+    "﻿stop_id": "71704",
+    "stop_name": "Platja Castelldefels",
+    "stop_lat": "41.266842",
+    "stop_lon": "1.957181"
+  },
+  "71705": {
+    "﻿stop_id": "71705",
+    "stop_name": "Castelldefels",
+    "stop_lat": "41.278755",
+    "stop_lon": "1.979093"
+  },
+  "71706": {
+    "﻿stop_id": "71706",
+    "stop_name": "Gavá",
+    "stop_lat": "41.303417",
+    "stop_lon": "2.010444"
+  },
+  "71707": {
+    "﻿stop_id": "71707",
+    "stop_name": "El Prat De Llobregat",
+    "stop_lat": "41.330626",
+    "stop_lon": "2.089908"
+  },
+  "71708": {
+    "﻿stop_id": "71708",
+    "stop_name": "Bellvitge",
+    "stop_lat": "41.353714",
+    "stop_lon": "2.115315"
+  },
+  "71709": {
+    "﻿stop_id": "71709",
+    "stop_name": "Viladecans",
+    "stop_lat": "41.309407",
+    "stop_lon": "2.027700"
+  },
+  "72300": {
+    "﻿stop_id": "72300",
+    "stop_name": "Molins De Rei",
+    "stop_lat": "41.409844",
+    "stop_lon": "2.02057"
+  },
+  "72301": {
+    "﻿stop_id": "72301",
+    "stop_name": "Sant Feliu De Llobregat",
+    "stop_lat": "41.382935",
+    "stop_lon": "2.047834"
+  },
+  "72302": {
+    "﻿stop_id": "72302",
+    "stop_name": "Sant Joan D'espi",
+    "stop_lat": "41.36854",
+    "stop_lon": "2.060147"
+  },
+  "72303": {
+    "﻿stop_id": "72303",
+    "stop_name": "Cornellà",
+    "stop_lat": "41.357469",
+    "stop_lon": "2.070566"
+  },
+  "72305": {
+    "﻿stop_id": "72305",
+    "stop_name": "L' Hospitalet De Llobregat",
+    "stop_lat": "41.364075",
+    "stop_lon": "2.100711"
+  },
+  "72400": {
+    "﻿stop_id": "72400",
+    "stop_name": "Aeroport",
+    "stop_lat": "41.303844",
+    "stop_lon": "2.072180"
+  }
+}
