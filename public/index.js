@@ -19,8 +19,56 @@ var polyline = L.polyline(
     coords,
     {color: 'black'}).addTo(railmap);
 
+
+function paintStops(filePath) {
+    loadJSON(filePath, function(stops) {
+        Object.keys(stops).forEach(stop => {
+            L.marker([stops[stop].stop_lat, stops[stop].stop_lon]).addTo(railmap); 
+        });
+    });
+}
+
+paintStops('data/stops/fgc.json');
+paintStops('data/stops/rodalies.json');
+paintStops('data/stops/tmb.json');
+paintStops('data/stops/tram.json');
+paintStops('data/stops/tram1.json');
+
+/*
+TRAINRAILS
+*/
+var polyline = L.polyline([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+]).addTo(railmap);
+
 var decorator = L.polylineDecorator(polyline, {
     patterns: [
             {offset: 10, repeat: 10, symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
     ]
 }).addTo(railmap);
+
+/*
+TRAINS
+*/
+
+
+
+function loadJSON(filePath, success, error) {
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200) {
+				if (success)
+					success(JSON.parse(xhr.responseText));
+		} else {
+			if (error)
+				error(xhr);
+			}
+		}
+	};
+	xhr.open("GET", filePath, true);
+	xhr.send();
+}
