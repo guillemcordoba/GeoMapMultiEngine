@@ -98,11 +98,11 @@ function drawElements(){
 
 function changeColor(route, color){
     polylines[route].setStyle({
-        color: color
+        color: '#' + color
     });
     decorators[route].setPatterns([
             {offset: 10, endOffset: 10, repeat: 10,
-                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: color, fillOpacity: 1, weight: 0}})}
+                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: '#' + color, fillOpacity: 1, weight: 0}})}
     ]);
 }
 
@@ -156,6 +156,8 @@ function reDrawTrains() {
         weightedMean([start.stop_lat,start.stop_lon],
          [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time))
 
+      wagon.marker.wagon = wagon;
+
 
     } else
     {
@@ -173,6 +175,10 @@ function reDrawTrains() {
        [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time)
        , {icon: greenIcon}).addTo(railmap);
 
+      wagon.marker.on('click', function(){
+        console.log(this.wagon.route.route_color)
+        changeColor(this.wagon.route.route_id, this.wagon.route.route_color);
+      })
 
     }
   }
