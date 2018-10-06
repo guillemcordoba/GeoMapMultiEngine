@@ -1,67 +1,4 @@
 ﻿route_id,route_short_name,route_long_name,route_type,route_color,route_text_color
-10T0079C1  ,C1  ,Principe Pio                            -Aeropuerto-T4                           ,2,00FFFF,000000
-10T0080C1  ,C1  ,Aeropuerto-T4                           -Principe Pio                            ,2,00FFFF,000000
-10T0046C10 ,C10 ,Villalba                                -Fuente de la Mora                       ,2,66FF00,000000
-10T0050C10 ,C10 ,Fuente de la Mora                       -Villalba                                ,2,66FF00,000000
-10T0006C2  ,C2  ,Guadalajara                             -Chamartin                               ,2,00FF00,000000
-10T0065C2  ,C2  ,Chamartin                               -Guadalajara                             ,2,00FF00,000000
-10T0019C3  ,C3  ,Chamartin                               -Aranjuez                                ,2,CC00CC,000000
-10T0020C3  ,C3  ,Aranjuez                                -Chamartin                               ,2,CC00CC,000000
-10T0030C4A ,C4A ,Alcobendas-S.Sebast. de los Reyes       -Parla                                   ,2,3366FF,000000
-10T0028C4A ,C4A ,Parla                                   -Alcobendas-S.Sebast. de los Reyes       ,2,3366FF,000000
-10T0034C4B ,C4B ,Colmenar Viejo                          -Parla                                   ,2,3366FF,000000
-10T0038C4B ,C4B ,Parla                                   -Colmenar Viejo                          ,2,3366FF,000000
-10T0017C5  ,C5  ,Mostoles el Soto                        -Humanes                                 ,2,66FF00,000000
-10T0018C5  ,C5  ,Humanes                                 -Mostoles el Soto                        ,2,66FF00,000000
-10T0071C7A ,C7A ,Alcala de Henares                       -Principe Pio                            ,2,FF0000,000000
-10T0068C7A ,C7A ,Principe Pio                            -Alcala de Henares                       ,2,FF0000,000000
-10T0042C8A ,C8A ,El Escorial                             -Atocha                                  ,2,00FF00,000000
-10T0043C8A ,C8A ,Atocha                                  -El Escorial                             ,2,00FF00,000000
-10T0007C8B ,C8B ,Atocha                                  -Cercedilla                              ,2,00FF00,000000
-10T0075C8B ,C8B ,Cercedilla                              -Atocha                                  ,2,00FF00,000000
-10T0074C9  ,C9  ,Cercedilla                              -Cotos                                   ,2,FF9900,000000
-10T0073C9  ,C9  ,Cotos                                   -Cercedilla                              ,2,FF9900,000000
-20T0028C1  ,C1  ,Gijon (Sanz Crespo)                     -Puente L.Fierros                        ,2,FF0000,000000
-20T0008C1  ,C1  ,Puente L.Fierros                        -Gijon (Sanz Crespo)                     ,2,FF0000,000000
-20T0015C2  ,C2  ,Oviedo                                  -El Entrego                              ,2,00FF00,000000
-20T0016C2  ,C2  ,El Entrego                              -Oviedo                                  ,2,00FF00,000000
-20T0020C3  ,C3  ,Llamaquique                             -San Juan de Nieva                       ,2,3366FF,000000
-20T0021C3  ,C3  ,San Juan de Nieva                       -Llamaquique                             ,2,3366FF,000000
-30T0020C1  ,C1  ,Lora del Rio                            -Lebrija                                 ,2,00FFFF,000000
-30T0018C1  ,C1  ,Lebrija                                 -Lora del Rio                            ,2,00FFFF,000000
-30T0005C2  ,C2  ,Santa Justa                             -Cartuja                                 ,2,00FF00,000000
-30T0006C2  ,C2  ,Cartuja                                 -Santa Justa                             ,2,00FF00,000000
-30T0029C3  ,C3  ,Santa Justa                             -Cazalla-Constantina                     ,2,FF0000,000000
-30T0007C3  ,C3  ,Cazalla-Constantina                     -Santa Justa                             ,2,FF0000,000000
-30T0024C4  ,C4  ,Santa Justa                             -Santa Justa                             ,2,CC00CC,000000
-30T0027C5  ,C5  ,Santa Justa                             -Benacazon                               ,2,3366FF,000000
-30T0026C5  ,C5  ,Benacazon                               -Santa Justa                             ,2,3366FF,000000
-31T0002C1  ,C1  ,CADIZ                                   -AEROPUERTO DE JEREZ                     ,2,FF0000,000000
-31T0004C1  ,C1  ,AEROPUERTO DE JEREZ                     -CADIZ                                   ,2,FF0000,000000
-32T0004C1  ,C1  ,Málaga-Centro Alameda                   -Fuengirola                              ,2,00FFFF,000000
-32T0003C1  ,C1  ,Fuengirola                              -Málaga-Centro Alameda                   ,2,00FFFF,000000
-32T0002C2  ,C2  ,Málaga-Centro Alameda                   -Alora                                   ,2,00FF00,000000
-32T0001C2  ,C2  ,Alora                                   -Málaga-Centro Alameda                   ,2,00FF00,000000
-40T0017C1  ,C1  ,Valencia Nord                           -Gandia                                  ,2,00FFFF,000000
-40T0036C1  ,C1  ,Valencia Nord                           -Platja i Grau de Gandia                 ,2,00FFFF,000000
-40T0019C1  ,C1  ,Gandia                                  -Valencia Nord                           ,2,00FFFF,000000
-40T0035C1  ,C1  ,Platja i Grau de Gandia                 -Valencia Nord                           ,2,00FFFF,000000
-40T0010C2  ,C2  ,Valencia Nord                           -Moixent                                 ,2,FF9900,000000
-40T0043C2  ,C2  ,Moixent                                 -Valencia Nord                           ,2,FF9900,000000
-40T0053C3  ,C3  ,Valencia Nord                           -Utiel                                   ,2,CC00CC,000000
-40T0055C3  ,C3  ,Utiel                                   -Valencia Nord                           ,2,CC00CC,000000
-40T0029C4  ,C4  ,Valencia - Sant Isidre                  -Xirivella - L'Alter                     ,2,FF0000,000000
-40T0028C4  ,C4  ,Xirivella - L'Alter                     -Valencia - Sant Isidre                  ,2,FF0000,000000
-40T0044C5  ,C5  ,Valencia Nord                           -Caudiel                                 ,2,00FF00,000000
-40T0032C5  ,C5  ,Caudiel                                 -Valencia Nord                           ,2,00FF00,000000
-40T0037C6  ,C6  ,Valencia Nord                           -Castello de la Plana                    ,2,3366FF,000000
-40T0038C6  ,C6  ,Castello de la Plana                    -Valencia Nord                           ,2,3366FF,000000
-41T0002C1  ,C1  ,Murcia del Carmen                       -Alicante/Alacant Termino                ,2,00FFFF,000000
-41T0001C1  ,C1  ,Alicante/Alacant Termino                -Murcia del Carmen                       ,2,00FFFF,000000
-41T0008C2  ,C2  ,Murcia del Carmen                       -Aguilas                                 ,2,00FF00,000000
-41T0007C2  ,C2  ,Aguilas                                 -Murcia del Carmen                       ,2,00FF00,000000
-41T0004C3  ,C3  ,Alicante/Alacant Termino                -Sant Vicent Centre                      ,2,CC00CC,000000
-41T0003C3  ,C3  ,Sant Vicent Centre                      -Alicante/Alacant Termino                ,2,CC00CC,000000
 50T0051R1  ,R1  ,Molins de Rei                           -MaÇanet-Massanes                        ,2,00FFFF,000000
 50T0050R1  ,R1  ,MaÇanet-Massanes                        -Molins de Rei                           ,2,00FFFF,000000
 50T0039R2  ,R2  ,Castelldefels                           -MaÇanet-Massanes                        ,2,00FF00,000000
@@ -78,15 +15,3 @@
 50T0060R7  ,R7  ,Cerdanyola-Universitat                  -Barcelona-Sant Andreu Arenal            ,2,FF33FF,000000
 50T0089R8  ,R8  ,Martorell                               -Granollers Centre                       ,2,CC00CC,000000
 50T0090R8  ,R8  ,Granollers Centre                       -Martorell                               ,2,CC00CC,000000
-60T0004C1  ,C1  ,Abando                                  -Santurtzi                               ,2,FF0000,000000
-60T0003C1  ,C1  ,Santurtzi                               -Abando                                  ,2,FF0000,000000
-60T0002C2  ,C2  ,Abando                                  -Muskiz                                  ,2,00FF00,000000
-60T0001C2  ,C2  ,Muskiz                                  -Abando                                  ,2,00FF00,000000
-60T0010C3  ,C3  ,Abando                                  -Ordu¦a                                  ,2,3366FF,000000
-60T0013C3  ,C3  ,Ordu¦a                                  -Abando                                  ,2,3366FF,000000
-61T0013C1  ,C1  ,Irun                                    -Brincola                                ,2,FF0000,000000
-61T0009C1  ,C1  ,Brincola                                -Irun                                    ,2,FF0000,000000
-62T0008C1  ,C1  ,Santander                               -Reinosa                                 ,2,FF0000,000000
-62T0007C1  ,C1  ,Reinosa                                 -Santander                               ,2,FF0000,000000
-70T0002C1  ,C1  ,Zaragoza Delicias                       -Miraflores                              ,2,FF0000,000000
-70T0001C1  ,C1  ,Miraflores                              -Zaragoza Delicias                       ,2,FF0000,000000

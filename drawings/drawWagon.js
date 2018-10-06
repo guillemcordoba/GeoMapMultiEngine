@@ -12,12 +12,43 @@ const svgToImg = require('svg-to-img');
   createPng('#ff0012', '#00a6f2', 'tmb_L10N.png');
   createPng('#ff0012', '#00a6f2', 'tmb_L10S.png');
   createPng('#ff0012', '#fc0032', 'tmb_L11.png');
-  createPng('#ff0012', '#91dc60', 'tmb_FM.png');
+  createPng('#ff0012', '#007551', 'tmb_FM.png');
+  createPng('#ff6800', '#896dc7', 'fcg_L6.png');
+  createPng('#ff6800', '#bd5f00', 'fcg_L7.png');
+  createPng('#ff6800', '#ff19b1', 'fcg_L8.png');
+  createPng('#ff6800', '#00c9bc', 'fcg_R5.png');
+  createPng('#ff6800', '#9c9fa5', 'fcg_R6.png');
+  createPng('#ff6800', '#ff6800', 'fcg_S1.png');
+  createPng('#ff6800', '#00cf33', 'fcg_S2.png');
+  createPng('#ff6800', '#ff19b1', 'fcg_S3.png');
+  createPng('#ff6800', '#8f841a', 'fcg_S4.png');
+  createPng('#ff6800', '#2a90db', 'fcg_S5.png');
+  createPng('#ff6800', '#2a90db', 'fcg_S6.png');
+  createPng('#ff6800', '#00c4dd', 'fcg_S8.png');
+  createPng('#ff6800', '#585963', 'fcg_R60.png');
+  createPng('#ff6800', '#007b9c', 'fcg_R50.png');
+  createPng('#ff6800', '#b8aae1', 'fcg_L12.png');
+  createPng('#ff6800', '#b4003e', 'fcg_S7.png');
+  createPng('#ff6800', '#ff0056', 'fcg_S9.png');
+  createPng('#ff6800', '#003e82', 'fcg_FV.png');
+  createPng('#ff6800', '#b4003e', 'fcg_S7T.png');
+  createPng('#ff6800', '#2a90db', 'fcg_S5S.png');
+  createPng('#009279', '#009279', 'tram_T1.png');
+  createPng('#009279', '#009279', 'tram_T2.png');
+  createPng('#009279', '#009279', 'tram_T3.png');
+  createPng('#ff4f00', '#0090d5', 'rodalies_R1.png');
+  createPng('#ff4f00', '#00a400', 'rodalies_R2.png');
+  createPng('#ff4f00', '#00a400', 'rodalies_R2N.png');
+  createPng('#ff4f00', '#00a400', 'rodalies_R2S.png');
+  createPng('#ff4f00', '#fd0000', 'rodalies_R3.png');
+  createPng('#ff4f00', '#f68900', 'rodalies_R4.png');
+  createPng('#ff4f00', '#cd6cb4', 'rodalies_R7.png');
+  createPng('#ff4f00', '#af0086', 'rodalies_R8.png');
 })();
 
 function createPng(outter_color, id_color, filename) {
   svgToImg.from(drawWagon(outter_color, id_color)).toPng({
-    path: filename,
+    path: 'trains/' + filename,
     background: 'rgba(0,0,0,0)',
     encoding: "base64"
   });
