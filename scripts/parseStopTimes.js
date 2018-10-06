@@ -9,6 +9,9 @@ function generate(typeName, isTmb = false) {
     function readRoutes() {
 
         function routes_to_obj(data) {
+
+            if(!Array.isArray(data)) return data;
+
             var data_obj = {};
             data_obj.route_id = data[0];
             data_obj.route_short_name = data[1];
@@ -189,6 +192,9 @@ function generate(typeName, isTmb = false) {
                 else {
                     if(!(route_id in routes)) {
                         routes[route_id] = {...read_routes[route_id]};
+                        
+                        
+                        
                         routes[route_id].stops = new Heap(function(a, b) {
                             return a[0].departure_time - b[0].departure_time;
                         });

@@ -141,7 +141,7 @@ Return dynamic information
 */
 
 
-var seconds_from_midnight = 4 * 60 * 60;
+var seconds_from_midnight = 6 * 60 * 60;
 function  getTime() {
   return seconds_from_midnight
 }
