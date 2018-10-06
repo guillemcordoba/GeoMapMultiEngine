@@ -1,0 +1,170 @@
+{
+  "6": {
+    "stop_lat": "41.39781569",
+    "stop_lon": "2.136433966",
+    "stop_name": "La Bonanova",
+    "stop_id": "6",
+    "wheelchair_boarding": "0"
+  },
+  "7": {
+    "stop_lat": "41.39780042",
+    "stop_lon": "2.130811822",
+    "stop_name": "Les Tres Torres",
+    "stop_id": "7",
+    "wheelchair_boarding": "0"
+  },
+  "8": {
+    "stop_lat": "41.39849938",
+    "stop_lon": "2.125574875",
+    "stop_name": "Sarrià",
+    "stop_id": "8",
+    "wheelchair_boarding": "0"
+  },
+  "9": {
+    "stop_lat": "41.39874599",
+    "stop_lon": "2.118932325",
+    "stop_name": "Reina Elisenda",
+    "stop_id": "9",
+    "wheelchair_boarding": "0"
+  },
+  "10": {
+    "stop_lat": "41.40921616",
+    "stop_lon": "2.111181541",
+    "stop_name": "Peu del Funicular",
+    "stop_id": "10",
+    "wheelchair_boarding": "0"
+  },
+  "29": {
+    "stop_lat": "41.40582569",
+    "stop_lon": "2.139151477",
+    "stop_name": "El Putxet",
+    "stop_id": "29",
+    "wheelchair_boarding": "0"
+  },
+  "30": {
+    "stop_lat": "41.40964799",
+    "stop_lon": "2.137162791",
+    "stop_name": "Av. Tibidabo",
+    "stop_id": "30",
+    "wheelchair_boarding": "0"
+  },
+  "32": {
+    "stop_lat": "41.36748768",
+    "stop_lon": "2.138879447",
+    "stop_name": "Magòria La Campana",
+    "stop_id": "32",
+    "wheelchair_boarding": "0"
+  },
+  "33": {
+    "stop_lat": "41.36090867",
+    "stop_lon": "2.130023266",
+    "stop_name": "Ildefons Cerdà",
+    "stop_id": "33",
+    "wheelchair_boarding": "0"
+  },
+  "34": {
+    "stop_lat": "41.35488589",
+    "stop_lon": "2.117431558",
+    "stop_name": "Gornal",
+    "stop_id": "34",
+    "wheelchair_boarding": "0"
+  },
+  "35": {
+    "stop_lat": "41.36070098",
+    "stop_lon": "2.10991665",
+    "stop_name": "Sant Josep",
+    "stop_id": "35",
+    "wheelchair_boarding": "0"
+  },
+  "36": {
+    "stop_lat": "41.35793378",
+    "stop_lon": "2.102709519",
+    "stop_name": "L'Hospitalet Av. Carrilet",
+    "stop_id": "36",
+    "wheelchair_boarding": "0"
+  },
+  "38": {
+    "stop_lat": "41.35306747",
+    "stop_lon": "2.085251402",
+    "stop_name": "Almeda",
+    "stop_id": "38",
+    "wheelchair_boarding": "0"
+  },
+  "39": {
+    "stop_lat": "41.34856143",
+    "stop_lon": "2.042855988",
+    "stop_name": "Sant Boi",
+    "stop_id": "39",
+    "wheelchair_boarding": "0"
+  },
+  "40": {
+    "stop_lat": "41.35751473",
+    "stop_lon": "2.035276936",
+    "stop_name": "Molí Nou - Ciutat Cooperativa",
+    "stop_id": "40",
+    "wheelchair_boarding": "0"
+  },
+  "41": {
+    "stop_lat": "41.36386336",
+    "stop_lon": "2.031859416",
+    "stop_name": "Colònia Güell",
+    "stop_id": "41",
+    "wheelchair_boarding": "0"
+  },
+  "42": {
+    "stop_lat": "41.37064766",
+    "stop_lon": "2.023520241",
+    "stop_name": "Santa Coloma de Cervelló",
+    "stop_id": "42",
+    "wheelchair_boarding": "0"
+  },
+  "43": {
+    "stop_lat": "41.38810839",
+    "stop_lon": "2.012398952",
+    "stop_name": "Sant Vicenç dels Horts",
+    "stop_id": "43",
+    "wheelchair_boarding": "0"
+  },
+  "44": {
+    "stop_lat": "41.39882061",
+    "stop_lon": "2.005346458",
+    "stop_name": "Can Ros",
+    "stop_id": "44",
+    "wheelchair_boarding": "0"
+  },
+  "45": {
+    "stop_lat": "41.40629238",
+    "stop_lon": "2.001715183",
+    "stop_name": "Quatre Camins",
+    "stop_id": "45",
+    "wheelchair_boarding": "0"
+  },
+  "75": {
+    "stop_lat": "41.4095214",
+    "stop_lon": "2.112954",
+    "stop_name": "Vallvidrera Inferior",
+    "stop_id": "75",
+    "wheelchair_boarding": "0"
+  },
+  "76": {
+    "stop_lat": "41.41412843",
+    "stop_lon": "2.105778047",
+    "stop_name": "Vallvidrera Superior",
+    "stop_id": "76",
+    "wheelchair_boarding": "0"
+  },
+  "169": {
+    "stop_lat": "41.35147828",
+    "stop_lon": "2.071263627",
+    "stop_name": "Cornellà Riera",
+    "stop_id": "169",
+    "wheelchair_boarding": "1"
+  },
+  "290": {
+    "stop_lat": "41.35655892",
+    "stop_lon": "2.124199344",
+    "stop_name": "Europa | Fira",
+    "stop_id": "290",
+    "wheelchair_boarding": "0"
+  }
+}
