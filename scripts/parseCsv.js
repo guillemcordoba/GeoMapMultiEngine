@@ -19,8 +19,8 @@ fs.readFile(file, 'utf8', function(err, data) {
         firstLine = false;
         return;
       }
-      if (!(line[0].startsWith('E') || line[0].startsWith('P'))) return;
-      if (line[6] !== 0) return;
+      //if (!(line[0].startsWith('E') || line[0].startsWith('P'))) return;
+      //if (line[6] !== 0) return;
       var processedLine = {};
       for (let i = 0; i < properties.length; i++) {
         processedLine[properties[i]] = line[i];
@@ -31,9 +31,22 @@ fs.readFile(file, 'utf8', function(err, data) {
         if (!(processedLine[lat_property[0]] > MIN_LAT && processedLine[lat_property[0]] < MAX_LAT
           && processedLine[lon_property[0]] > MIN_LON && processedLine[lon_property[0]] < MAX_LON)) return; 
       }
-      json[line[0]] = processedLine;
+      var id_property = properties.filter(property => property.includes('id'))[0];
+      json[processedLine[id_property]] = processedLine;
     })
     .on('end', function() {
       console.log(JSON.stringify(json, null, 2));
     });
 });
+
+
+function filterStop(line, tmb) {
+  if (!(line[3] > MIN_LAT && line[3] < MAX_LAT
+    && line[4] > MIN_LON && line[4] < MAX_LON)) return false;
+  if (tmb) {
+    if (!(line[0].startsWith('E') || line[0].startsWith('P'))) return false;
+    if (line[6] !== 0) return false;
+  }
+
+  return true;
+}

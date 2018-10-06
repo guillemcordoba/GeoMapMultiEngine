@@ -1,4 +1,3 @@
-
 var railmap = L.map('map').setView([41.356360, 2.103296], 13);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -55,6 +54,8 @@ function loadRouteData(filePath) {
     }
     routes = file
     drawElements();
+    addTime(2*60*60)
+    reDrawTrains()
   });
 }
 
@@ -139,11 +140,10 @@ function weightedMean(pos1, pos2, weight) {
 
 }
 
-addTime(2*60*60)
-reDrawTrains()
-
 function reDrawTrains() {
   var wagons = getWagons()
+  console.log(wagons);
+
   for(var wagon of wagons){
     if (wagon.marker){
 
@@ -183,15 +183,17 @@ function hour_to_seconds(hour) {
 
 function addTime(time_to_add) {
   var next_time = seconds_from_midnight + time_to_add
-  for (route of routes)
+  for (routeKey in routes)
   {
+    var route = routes[routeKey]
     var freq = 0
     for (var time in route.freq) {
-      if (hour_to_seconds(time) < seconds_from_midnight){
-        freq = route.freq[time]
+      console.log(time);
+      if (hour_to_seconds(time["0"]) < seconds_from_midnight){
+        freq = route.freq[time]["1"]
       }
     }
-    var freq = route.freq
+    console.log(freq);
     for(var now=seconds_from_midnight; now<=next_time; ++now)
     {
       if (now%freq == 0 )

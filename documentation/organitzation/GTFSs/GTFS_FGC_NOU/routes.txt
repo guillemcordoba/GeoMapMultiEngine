@@ -1,5 +1,5 @@
 ﻿route_id,route_short_name,route_long_name,route_type,route_url,route_color,route_text_color
-1,ES,Pl. Catalunya - Sant Joan,2,http://www.fgc.cat/cat/barcelona-valles.asp,5A5858,FFFFFF
+#1,ES,Pl. Catalunya - Sant Joan,2,http://www.fgc.cat/cat/barcelona-valles.asp,5A5858,FFFFFF
 3,L6,Barcelona Pl. Catalunya - Sarrià,1,http://www.fgc.cat/cat/barcelona-valles.asp?linia=L6,797FBC,FFFFFF
 4,L7,Barcelona Pl. Catalunya - Av Tibidabo,1,http://www.fgc.cat/cat/barcelona-valles.asp?linia=L7,B2600B,FFFFFF
 5,L8,Barcelona Pl. Espanya - Molí Nou,1,http://www.fgc.cat/cat/llobregat-anoia.asp?linia=L8,E274AA,FFFFFF
@@ -12,7 +12,7 @@
 13,S5,Barcelona Pl. Catalunya - Sant Cugat,2,http://www.fgc.cat/cat/barcelona-valles.asp?linia=S5,5B8FCB,FFFFFF
 14,S6,Barcelona Pl. Catalunya - U. Autónoma,2,http://www.fgc.cat/cat/barcelona-valles.asp?linia=S55,E40046,FFFFFF
 15,S8,Barcelona Pl. Espanya - Martorell Enllaç,2,http://www.fgc.cat/cat/llobregat-anoia.asp?linia=S8,49C0DE,FFFFFF
-16,LP,Lleida - La Pobla,2,http://www.fgc.cat/cat/lleida-lapobla.asp,FF8000,FFFFFF
+#16,LP,Lleida - La Pobla,2,http://www.fgc.cat/cat/lleida-lapobla.asp,FF8000,FFFFFF
 17,R60,Barcelona Pl. Espanya - Igualada,2,http://fgc.cat/cat/llobregat-anoia.asp?linia=R60,5b5b5b,FFFFFF
 18,R50,Barcelona Pl. Espanya- Manresa,2,http://fgc.cat/cat/llobregat-anoia.asp?linia=R50,00738a,FFFFFF
 43,L12,Sarrià - Reina Elisenda,1,http://fgc.cat/cat/barcelona-valles.asp?linia=L12,b2aed3,FFFFFF
