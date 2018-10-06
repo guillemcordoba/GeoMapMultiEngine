@@ -8,12 +8,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2l0dHVzIiwiYSI6ImNqbXdsMzlwMTM5MDEzcG54bXdrM281anoifQ.bm1LajQFRW9BGEe2iq8kYQ'
 }).addTo(railmap);
 
-var coords = [
-    [41.377152, 2.111032],
-    [41.384540, 2.112160],
-    [41.388259, 2.127338],
-    [41.392541, 2.144408]
-    ];
 
 /**
  * STOPS
@@ -45,11 +39,34 @@ paintStops('data/stops/tram1.json');
 /*
 TRAINRAILS
 */
-var polyline = L.polyline(
-    coords,
-    {color: 'black'}).addTo(railmap);
 
-var decorator = L.polylineDecorator(polyline, {
+function anglePoints(p1, p2){
+    proj1 = railmap.project(p1);
+    proj2 = railmap.project(p2);
+
+    return - Math.atan2(proj2.y-proj1.y, proj2.x-proj1.x) * 180 / Math.PI;
+}
+
+var routes = getRoutes();
+var polylines = []
+
+for (route in routes){
+    var stopsList = routes[route]['stops'];
+    var coords = []
+
+    for (stop of stopsList){
+        latlong = [stop["stop_lat"], stop["stop_lon"]];
+        coords.push(latlong);
+
+        L.marker(latlong, {icon: stopIcon}).bindTooltip(stop['stop_name'],
+            { permanent: true, direction: 'top', opacity: 0.6}).addTo(railmap);
+
+    }
+
+    polylines.push (L.polyline(coords,{color: 'black'}).addTo(railmap));
+}
+
+var decorator = L.polylineDecorator(polylines, {
     patterns: [
             {offset: 10, endOffset: 10, repeat: 10,
                 symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
@@ -117,6 +134,7 @@ function addTime(time_to_add) {
 function getRoutes(){
   return routes
 }
+
 
 function getWagons() {
   return
