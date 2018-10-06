@@ -17,7 +17,7 @@ var stopIcon = L.icon({
 });
 
 
-wagons = []
+window.wagons = []
 routes = {}
 
 loadRouteData('data/stops/routesTMB.json')
@@ -115,15 +115,16 @@ function weightedMean(pos1, pos2, weight) {
 
 
 function reDrawTrains() {
-  var wagons = getWagons()
-  console.log(wagons);
-  for(var wagon of wagons){
+  getWagons()
+  for(var wagon of window.wagons){
     if (wagon.marker){
+      /*wagon.marker.setLatLng(weightedMean([wagon.start.stop_lat,wagon.start.stop_lon]
+       [wagon.end.stop_lat,wagon.end.stop_lon],wagon.time_to_arrive/wagon.total_time))*/
 
     } else
     {
       var greenIcon = L.icon({
-      iconUrl: 'img/trains/'+routes[wagon.route].route_short_name+'.png',
+      iconUrl: 'img/trains/R1.png',
       iconSize:     [40, 20], // size of the icon
       iconAnchor:   [20, 10], // point of the icon which will correspond to marker's location
       popupAnchor:  [0, 15] // point from which the popup should open relative to the iconAnchor
@@ -141,7 +142,7 @@ Return dynamic information
 */
 
 
-var seconds_from_midnight = 4 * 60 * 60;
+var seconds_from_midnight = 6 * 60 * 60;
 function  getTime() {
   return seconds_from_midnight
 }
@@ -161,20 +162,17 @@ function addTime(time_to_add) {
     var route = routes[routeKey]
     var freq = 0
     for (var time in route.freq) {
-      console.log(time);
-      if (hour_to_seconds(time["0"]) < seconds_from_midnight){
-        freq = route.freq[time]["1"]
+      if (hour_to_seconds(time) < seconds_from_midnight){
+        freq = route.freq[time]
       }
     }
-    console.log(freq);
     for(var now=seconds_from_midnight; now<=next_time; ++now)
     {
       if (now%freq == 0 )
       {
-        wagons.push({
+        window.wagons.push({
           "route": route,
-          "spawned_time" : now,
-          "start": 0
+          "spawned_time" : now
         })
       }
     }
@@ -189,26 +187,27 @@ function getRoutes(){
 
 
 function getWagons() {
-  for (var wagon_key in  wagons){
-    var wagon = wagons[wagon_key];
+  for (var wagon_key in  window.wagons){
+    var wagon = window.wagons[wagon_key];
     var routeKey = wagon.route
-    for (var stop of routes[routeKey].stops){
+    for (var stop of wagon.route.stops){
       wagon.start = ""
       wagon.end = ""
       if((seconds_from_midnight - wagon.spawned_time) < hour_to_seconds(stop.departure_time))
       {
         wagon.start = stop
       }
-      if(wagon.end == "" && (seconds_from_midnight - wagon.spawned_time) > hour_to_seconds(stop.arrival_time) )
+      if(wagon.end === "" && (seconds_from_midnight - wagon.spawned_time) > hour_to_seconds(stop.arrival_time) )
       {
         wagon.end = stop
         wagon.time_to_arrive = stop.arrival_time - seconds_from_midnight
         wagon.total_time = stop.arrival_time - wagon.start.departure_time
       }
     }
-    if (wagon.end == ""){
-      delete wagons[wagon_key];
+    if (wagon.end === ""){
+      window.wagons.splice(wagon_key, 1);
+      //delete window.wagons[wagon_key];
     }
   }
-  return wagons
+  return window.wagons
 }
