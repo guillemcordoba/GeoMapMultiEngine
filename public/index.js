@@ -1,4 +1,3 @@
-
 var railmap = L.map('map').setView([41.356360, 2.103296], 13);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -8,12 +7,39 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2l0dHVzIiwiYSI6ImNqbXdsMzlwMTM5MDEzcG54bXdrM281anoifQ.bm1LajQFRW9BGEe2iq8kYQ'
 }).addTo(railmap);
 
+var lastZoom;
+var tooltipThreshold = 15;
+
+railmap.on('zoomend', function() {
+    var zoom = railmap.getZoom();
+    if (zoom < tooltipThreshold && (!lastZoom || lastZoom >= tooltipThreshold)) {
+        railmap.eachLayer(function(l) {
+            if (l.getTooltip()) {
+                var tooltip = l.getTooltip();
+                l.unbindTooltip().bindTooltip(tooltip, {
+                    permanent: false
+                })
+            }
+        })
+    } else if (zoom >= tooltipThreshold && (!lastZoom || lastZoom < tooltipThreshold)) {
+        railmap.eachLayer(function(l) {
+            if (l.getTooltip()) {
+                var tooltip = l.getTooltip();
+                l.unbindTooltip().bindTooltip(tooltip, {
+                    permanent: true
+                })
+            }
+        });
+    }
+    lastZoom = zoom;
+})
+
 /**
  * STOPS
  */
 var stopIcon = L.icon({
     iconUrl: 'img/stop.png',
-     iconSize:     [12, 12]
+    iconSize:     [12, 12]
 });
 
 
@@ -50,8 +76,11 @@ function drawElements(){
             latlong = [stop["stop_lat"], stop["stop_lon"]];
             coords.push(latlong);
 
-            L.marker(latlong, {icon: stopIcon}).addTo(railmap);
-
+            marker = L.marker(latlong, {icon: stopIcon}).addTo(railmap);
+            (railmap.getZoom() >= tooltipThreshold
+                ? marker.bindTooltip(stop["stop_name"], {permanent:true, direction: "top"})
+                : marker.bindTooltip(stop["stop_name"], {permanent:false, direction: "top"})
+            );
         }
 
         polylines[route] = L.polyline(coords,{color: 'black'}).addTo(railmap);
@@ -88,21 +117,21 @@ TRAINS
 
 
 function loadJSON(filePath, success, error) {
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE) {
-			if (xhr.status === 200) {
-				if (success)
-					success(JSON.parse(xhr.responseText));
-		} else {
-			if (error)
-				error(xhr);
-			}
-		}
-	};
-	xhr.open("GET", filePath, true);
-	xhr.send();
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+        } else {
+            if (error)
+                error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", filePath, true);
+    xhr.send();
 }
 
 
@@ -111,8 +140,6 @@ function weightedMean(pos1, pos2, weight) {
           pos1[1] * (1-weight) + pos2[1] * weight];
 
 }
-
-
 
 function reDrawTrains() {
   getWagons()
