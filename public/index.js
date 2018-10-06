@@ -35,6 +35,7 @@ function paintStops(filePath) {
     });
 }
 
+
 paintStops('data/stops/fgc.json');
 paintStops('data/stops/rodalies.json');
 paintStops('data/stops/tmb.json');
@@ -83,54 +84,38 @@ function loadJSON(filePath, success, error) {
 Return dynamic information
 */
 
+
+loadRouteData('data/stops/routes.json')
+
 wagons = []
+routes = {}
+function loadRouteData(filePath) {
+  loadJSON(filePath, function(file) {
+    for (route in file) {
+      console.log("Parsing route :" + route);
+    }
+    routes = file
+  });
+}
+
+
+var seconds_from_midnight = 8 * 60 * 60;
+function  getTime() {
+  return seconds_from_midnight
+}
+
+function addTime(time_to_add) {
+  var next_time = seconds_from_midnight + time_to_add
+  for (route of routes)
+  {
+
+  }
+}
+
+
 
 function getRoutes(){
-  var ret = {
-    "route1" :
-    {
-      "stops" :
-      [
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.377152",
-          "stop_lon": "2.111032",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.384540",
-          "stop_lon": "2.112160",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.388259",
-          "stop_lon": "2.127338",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.392541",
-          "stop_lon": "2.144408",
-          "stop_name": "Hospital de Bellvitge"
-        }
-      ]
-    }
-  };
-  return ret
+  return routes
 }
 
 function getWagons() {
