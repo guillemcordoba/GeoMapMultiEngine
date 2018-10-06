@@ -139,8 +139,10 @@ function loadJSON(filePath, success, error) {
 
 
 function weightedMean(pos1, pos2, weight) {
-  return [pos1[0] * (1-weight) + pos2[0] * weight,
-          pos1[1] * (1-weight) + pos2[1] * weight];
+  if (weight>1) weight = 1
+  if (weight<0) weight = 0
+  return [pos1[0] * (weight) + pos2[0] * (1-weight),
+          pos1[1] * (weight) + pos2[1] * (1-weight)];
 
 }
 
