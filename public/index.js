@@ -8,12 +8,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2l0dHVzIiwiYSI6ImNqbXdsMzlwMTM5MDEzcG54bXdrM281anoifQ.bm1LajQFRW9BGEe2iq8kYQ'
 }).addTo(railmap);
 
-var coords = [
-    [41.377152, 2.111032],
-    [41.384540, 2.112160],
-    [41.388259, 2.127338],
-    [41.392541, 2.144408]
-    ];
 
 /**
  * STOPS
@@ -35,6 +29,7 @@ function paintStops(filePath) {
     });
 }
 
+
 paintStops('data/stops/fgc.json');
 paintStops('data/stops/rodalies.json');
 paintStops('data/stops/tmb.json');
@@ -44,11 +39,34 @@ paintStops('data/stops/tram1.json');
 /*
 TRAINRAILS
 */
-var polyline = L.polyline(
-    coords,
-    {color: 'black'}).addTo(railmap);
 
-var decorator = L.polylineDecorator(polyline, {
+function anglePoints(p1, p2){
+    proj1 = railmap.project(p1);
+    proj2 = railmap.project(p2);
+
+    return - Math.atan2(proj2.y-proj1.y, proj2.x-proj1.x) * 180 / Math.PI;
+}
+
+var routes = getRoutes();
+var polylines = []
+
+for (route in routes){
+    var stopsList = routes[route]['stops'];
+    var coords = []
+
+    for (stop of stopsList){
+        latlong = [stop["stop_lat"], stop["stop_lon"]];
+        coords.push(latlong);
+
+        L.marker(latlong, {icon: stopIcon}).bindTooltip(stop['stop_name'],
+            { permanent: true, direction: 'top', opacity: 0.6}).addTo(railmap);
+
+    }
+
+    polylines.push (L.polyline(coords,{color: 'black'}).addTo(railmap));
+}
+
+var decorator = L.polylineDecorator(polylines, {
     patterns: [
             {offset: 10, endOffset: 10, repeat: 10,
                 symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
@@ -83,55 +101,40 @@ function loadJSON(filePath, success, error) {
 Return dynamic information
 */
 
+
+loadRouteData('data/stops/routes.json')
+
 wagons = []
+routes = {}
+function loadRouteData(filePath) {
+  loadJSON(filePath, function(file) {
+    for (route in file) {
+      console.log("Parsing route :" + route);
+    }
+    routes = file
+  });
+}
+
+
+var seconds_from_midnight = 8 * 60 * 60;
+function  getTime() {
+  return seconds_from_midnight
+}
+
+function addTime(time_to_add) {
+  var next_time = seconds_from_midnight + time_to_add
+  for (route of routes)
+  {
+
+  }
+}
+
+
 
 function getRoutes(){
-  var ret = {
-    "route1" :
-    {
-      "stops" :
-      [
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.377152",
-          "stop_lon": "2.111032",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.384540",
-          "stop_lon": "2.112160",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.388259",
-          "stop_lon": "2.127338",
-          "stop_name": "Hospital de Bellvitge"
-        },
-        {
-          "stop_id": "1.41.1",
-          "trip_id" : "1.41.1",
-          "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35",
-          "stop_lat": "41.392541",
-          "stop_lon": "2.144408",
-          "stop_name": "Hospital de Bellvitge"
-        }
-      ]
-    }
-  };
-  return ret
+  return routes
 }
+
 
 function getWagons() {
   return
