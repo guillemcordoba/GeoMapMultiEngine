@@ -85,13 +85,10 @@ function generate(typeName, isTmb = false) {
             var data_obj = freq_to_obj(data);
 
             if(!(data_obj.trip_id in freqs)) {
-                freqs[data_obj.trip_id] = [];
+                freqs[data_obj.trip_id] = {};
             }
 
-            var to_push = {}
-            to_push[data_obj.start_time] = data_obj.headway_secs;
-
-            freqs[data_obj.trip_id].push(to_push);
+            freqs[data_obj.trip_id][data_obj.start_time] = data_obj.headway_secs;
         })
         .on("end", function(){
             readTrips();
