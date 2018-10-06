@@ -104,12 +104,42 @@ function loadJSON(filePath, success, error) {
 }
 
 
+function weightedMean(pos1, pos2, weight) {
+  return [pos1[0] * (1-weight) + pos2[0] * weight,
+          pos1[1] * (1-weight) + pos2[1] * weight];
+
+}
+
+addTime(2*60*60)
+reDrawTrains()
+
+function reDrawTrains() {
+  var wagons = getWagons()
+  for(var wagon of wagons){
+    if (wagon.marker){
+
+    } else
+    {
+      var greenIcon = L.icon({
+      iconUrl: 'img/trains/'+routes[wagon.route].route_short_name+'.png',
+      iconSize:     [40, 20], // size of the icon
+      iconAnchor:   [20, 10], // point of the icon which will correspond to marker's location
+      popupAnchor:  [0, 15] // point from which the popup should open relative to the iconAnchor
+      });
+
+      wagon.marker = L.marker(weightedMean([wagon.start.stop_lat,wagon.start.stop_lon]
+       [wagon.end.stop_lat,wagon.end.stop_lon],wagon.time_to_arrive/wagon.total_time)
+       , {icon: greenIcon}).addTo(map);
+    }
+  }
+
+}
 /*
 Return dynamic information
 */
 
 
-var seconds_from_midnight = 8 * 60 * 60;
+var seconds_from_midnight = 4 * 60 * 60;
 function  getTime() {
   return seconds_from_midnight
 }
@@ -168,7 +198,7 @@ function getWagons() {
       {
         wagon.end = stop
         wagon.time_to_arrive = stop.arrival_time - seconds_from_midnight
-        wagon.time_to_arrive = stop.arrival_time - wagon.start.departure_time
+        wagon.total_time = stop.arrival_time - wagon.start.departure_time
       }
     }
     if (wagon.end == ""){
