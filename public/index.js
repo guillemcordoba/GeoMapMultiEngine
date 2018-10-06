@@ -80,8 +80,7 @@ function loadJSON(filePath, success, error) {
 
 
 function getRoutes(){
-  return
-  {
+  var ret = {
     "route1" :
     {
       "stops" :
@@ -90,7 +89,7 @@ function getRoutes(){
           "stop_id": "1.41.1",
           "trip_id" : "1.41.1",
           "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35"
+          "departure_time" : "00:00:35",
           "stop_lat": "41.377152",
           "stop_lon": "2.111032",
           "stop_name": "Hospital de Bellvitge"
@@ -99,7 +98,7 @@ function getRoutes(){
           "stop_id": "1.41.1",
           "trip_id" : "1.41.1",
           "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35"
+          "departure_time" : "00:00:35",
           "stop_lat": "41.384540",
           "stop_lon": "2.112160",
           "stop_name": "Hospital de Bellvitge"
@@ -108,7 +107,7 @@ function getRoutes(){
           "stop_id": "1.41.1",
           "trip_id" : "1.41.1",
           "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35"
+          "departure_time" : "00:00:35",
           "stop_lat": "41.388259",
           "stop_lon": "2.127338",
           "stop_name": "Hospital de Bellvitge"
@@ -117,7 +116,7 @@ function getRoutes(){
           "stop_id": "1.41.1",
           "trip_id" : "1.41.1",
           "arrival_time" : "00:00:00",
-          "departure_time" : "00:00:35"
+          "departure_time" : "00:00:35",
           "stop_lat": "41.392541",
           "stop_lon": "2.144408",
           "stop_name": "Hospital de Bellvitge"
@@ -125,5 +124,5 @@ function getRoutes(){
       ]
     }
   };
-
+  return ret
 }
