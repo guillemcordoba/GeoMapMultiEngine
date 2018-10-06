@@ -55,10 +55,11 @@ function loadRouteData(filePath) {
     }
     routes = file
     drawElements();
-    for(var i=0; i<100; ++i){
-      addTime(100)
-      reDrawTrains()
-    }
+     setInterval(function(){
+       addTime(5000)
+       reDrawTrains()
+     }, 500);
+
   });
 }
 
@@ -147,13 +148,12 @@ function reDrawTrains() {
   getWagons()
   for(var wagon of window.wagons){
     if (wagon.marker){
-      /*wagon.marker.setLatLng(weightedMean([wagon.start.stop_lat,wagon.start.stop_lon]
-       [wagon.end.stop_lat,wagon.end.stop_lon],wagon.time_to_arrive/wagon.total_time))*/
+
 
     } else
     {
       var greenIcon = L.icon({
-      iconUrl: 'img/trains/R1.png',
+      iconUrl: 'img/trains/'+wagon.route.route_short_name +'.png',
       iconSize:     [40, 20], // size of the icon
       iconAnchor:   [20, 10], // point of the icon which will correspond to marker's location
       popupAnchor:  [0, 15] // point from which the popup should open relative to the iconAnchor
@@ -183,10 +183,10 @@ function  getTime() {
 
 
 function hour_to_seconds(hour) {
-  var hours = hour[0]*10+ hour[1]
-  var minutes = hour[3]*10+ hour[4]
-  var seconds = hour[6]*10+ hour[7]
-  return seconds + 60 * (minutes + hours * 60)
+  var hours = parseInt(hour[0])*10+ parseInt(hour[1]);
+  var minutes = parseInt(hour[3])*10+ parseInt(hour[4]);
+  var seconds = parseInt(hour[6])*10+ parseInt(hour[7]);
+  return seconds + 60 * minutes + hours * 3600;
 }
 
 function addTime(time_to_add) {
@@ -212,6 +212,7 @@ function addTime(time_to_add) {
       }
     }
   }
+  seconds_from_midnight = seconds_from_midnight + time_to_add
 }
 
 
