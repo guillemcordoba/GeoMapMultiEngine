@@ -10,6 +10,7 @@
   "dependencies": {
     "convert-svg-to-png": "^0.4.0",
     "heap": "^0.2.6",
+    "leaflet-rotatedmarker": "^0.2.0",
     "register-service-worker": "^1.0.0",
     "svg-to-img": "^2.0.7",
     "vue": "^2.5.17"

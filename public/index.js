@@ -97,13 +97,23 @@ function drawElements(){
 }
 
 function changeColor(route, color){
-    polylines[route].setStyle({
-        color: color
-    });
-    decorators[route].setPatterns([
-            {offset: 10, endOffset: 10, repeat: 10,
-                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: color, fillOpacity: 1, weight: 0}})}
-    ]);
+    for (var r in routes) {
+      var c = "000000"
+
+      if (r == route){
+        c = color;
+      }
+
+      // console.log(c, r);
+
+      polylines[r].setStyle({
+          color: '#' + c
+      });
+      decorators[r].setPatterns([
+              {offset: 10, endOffset: 10, repeat: 10,
+                  symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: '#' + c, fillOpacity: 1, weight: 0}})}
+      ]);
+    }
 }
 
 function anglePoints(p1, p2){
@@ -155,6 +165,9 @@ function reDrawTrains() {
       wagon.marker.setLatLng(
         weightedMean([start.stop_lat,start.stop_lon],
          [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time))
+         wagon.marker.setRotationAngle(anglePoints([start.stop_lon, start.stop_lat], [end.stop_lon, end.stop_lat])- 90);
+
+      wagon.marker.wagon = wagon;
 
 
     } else
@@ -173,7 +186,13 @@ function reDrawTrains() {
        [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time)
        , {icon: greenIcon}).addTo(railmap);
 
+      wagon.marker.on('click', function(){
+        console.log(this.wagon.route.route_color)
+        changeColor(this.wagon.route.route_id, this.wagon.route.route_color);
+      })
 
+       wagon.marker.setRotationAngle(anglePoints([start.stop_lon, start.stop_lat], [end.stop_lon, end.stop_lat])- 90);
+  //     wagon.marker._icon.style.transform="rotate(45deg);"
     }
   }
 
