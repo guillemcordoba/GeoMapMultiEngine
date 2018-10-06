@@ -20,7 +20,7 @@ var stopIcon = L.icon({
 wagons = []
 routes = {}
 
-loadRouteData('data/stops/routes.json')
+loadRouteData('data/stops/routesTMB.json')
 
 function loadRouteData(filePath) {
   loadJSON(filePath, function(file) {
@@ -185,7 +185,8 @@ function getRoutes(){
 
 
 function getWagons() {
-  for (var wagon of wagons){
+  for (var wagon_key in  wagons){
+    var wagon = wagons[wagon_key];
     var routeKey = wagon.route
     for (var stop of routes[routeKey].stops){
       wagon.start = ""
@@ -202,7 +203,7 @@ function getWagons() {
       }
     }
     if (wagon.end == ""){
-      delete wagon
+      delete wagons[wagon_key];
     }
   }
   return wagons
