@@ -1,5 +1,5 @@
 console.log("Hello");
-var railmap = L.map('map').setView([51.505, -0.09], 13);
+var railmap = L.map('map').setView([41.356360, 2.103296], 13);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -7,15 +7,19 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2l0dHVzIiwiYSI6ImNqbXdsMzlwMTM5MDEzcG54bXdrM281anoifQ.bm1LajQFRW9BGEe2iq8kYQ'
 }).addTo(railmap);
 
-var polyline = L.polyline([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
-]).addTo(railmap);
+var coords = [
+    [41.377152, 2.111032],
+    [41.384540, 2.112160],
+    [41.388259, 2.127338],
+    [41.392541, 2.144408]
+    ];
+
+var polyline = L.polyline(
+    coords,
+    {color: 'black'}).addTo(railmap);
 
 var decorator = L.polylineDecorator(polyline, {
     patterns: [
-        // defines a pattern of 10px-wide dashes, repeated every 20px on the line
-        {offset: 0, repeat: 20, symbol: L.Symbol.dash({pixelSize: 10})}
+            {offset: 10, repeat: 10, symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
     ]
 }).addTo(railmap);
