@@ -15,11 +15,6 @@ var coords = [
     [41.392541, 2.144408]
     ];
 
-var polyline = L.polyline(
-    coords,
-    {color: 'black'}).addTo(railmap);
-
-
 function paintStops(filePath) {
     loadJSON(filePath, function(stops) {
         Object.keys(stops).forEach(stop => {
@@ -37,15 +32,14 @@ paintStops('data/stops/tram1.json');
 /*
 TRAINRAILS
 */
-var polyline = L.polyline([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
-]).addTo(railmap);
+var polyline = L.polyline(
+    coords,
+    {color: 'black'}).addTo(railmap);
 
 var decorator = L.polylineDecorator(polyline, {
     patterns: [
-            {offset: 10, repeat: 10, symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
+            {offset: 10, endOffset: 10, repeat: 10,
+                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
     ]
 }).addTo(railmap);
 
