@@ -82,6 +82,12 @@ function loadJSON(filePath, success, error) {
 }
 
 
+/*
+Return dynamic information
+*/
+
+wagons = []
+
 function getRoutes(){
   var ret = {
     "route1" :
@@ -131,3 +137,14 @@ function getRoutes(){
 }
 
 
+function getWagons() {
+  return
+    [{
+      "start": "1.41.1",
+      "end":  "1.41.1",
+      "route": "route1",
+      "time_to_arrive": 5,
+      "total_time": 10
+    }
+    ]
+}
