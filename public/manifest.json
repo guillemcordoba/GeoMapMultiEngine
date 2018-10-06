@@ -1,6 +1,6 @@
 {
-  "name": "geomapmultiengine",
-  "short_name": "geomapmultiengine",
+  "name": "GeoMapMultiEngine",
+  "short_name": "GeoMapMultiEngine",
   "icons": [
     {
       "src": "/GeoMapMultiEngine/dist/img/icons/android-chrome-192x192.png",
