@@ -55,8 +55,10 @@ function loadRouteData(filePath) {
     }
     routes = file
     drawElements();
-    addTime(2*60*60)
-    reDrawTrains()
+    for(var i=0; i<100; ++i){
+      addTime(100)
+      reDrawTrains()
+    }
   });
 }
 
@@ -157,9 +159,14 @@ function reDrawTrains() {
       popupAnchor:  [0, 15] // point from which the popup should open relative to the iconAnchor
       });
 
-      wagon.marker = L.marker(weightedMean([wagon.start.stop_lat,wagon.start.stop_lon]
-       [wagon.end.stop_lat,wagon.end.stop_lon],wagon.time_to_arrive/wagon.total_time)
-       , {icon: greenIcon}).addTo(map);
+      var start = wagon.route.stops[wagon.current_station]
+      var end = wagon.route.stops[wagon.current_station+1]
+
+      wagon.marker = L.marker(weightedMean([start.stop_lat,start.stop_lon],
+       [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time)
+       , {icon: greenIcon}).addTo(railmap);
+
+
     }
   }
 
@@ -199,7 +206,8 @@ function addTime(time_to_add) {
       {
         window.wagons.push({
           "route": route,
-          "spawned_time" : now
+          "spawned_time" : now,
+          "current_station": 0
         })
       }
     }
@@ -214,27 +222,35 @@ function getRoutes(){
 
 
 function getWagons() {
-  for (var wagon_key in  window.wagons){
-    var wagon = window.wagons[wagon_key];
-    var routeKey = wagon.route
-    for (var stop of wagon.route.stops){
-      wagon.start = ""
-      wagon.end = ""
-      if((seconds_from_midnight - wagon.spawned_time) < hour_to_seconds(stop.departure_time))
-      {
-        wagon.start = stop
-      }
-      if(wagon.end === "" && (seconds_from_midnight - wagon.spawned_time) > hour_to_seconds(stop.arrival_time) )
-      {
-        wagon.end = stop
-        wagon.time_to_arrive = stop.arrival_time - seconds_from_midnight
-        wagon.total_time = stop.arrival_time - wagon.start.departure_time
-      }
+  for(var wagonKey in window.wagons){
+    var deleted = false;
+    var wagon = window.wagons[wagonKey];
+    var arrival_time = hour_to_seconds(wagon.route.stops[wagon.current_station+1].arrival_time)
+      + wagon.spawned_time;
+
+    while(arrival_time < seconds_from_midnight){
+         wagon.current_station++;
+
+         if (wagon.current_station == wagon.route.stops.lenght){
+           window.wagons.splice(wagonKey,1)
+           deleted = true;
+           break;
+         }
+
+         arrival_time = hour_to_seconds(wagon.route.stops[wagon.current_station + 1].arrival_time)
+           + wagon.spawned_time;
     }
-    if (wagon.end === ""){
-      window.wagons.splice(wagon_key, 1);
-      //delete window.wagons[wagon_key];
+    if(!deleted) {
+      wagon.time_to_arrive = arrival_time - seconds_from_midnight;
+
+      var departure_time = hour_to_seconds(wagon.route.stops[wagon.current_station].departure_time)
+        + wagon.spawned_time;
+
+      wagon.total_time = arrival_time - departure_time;
     }
+
+
   }
+
   return window.wagons
 }
