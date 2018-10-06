@@ -155,6 +155,7 @@ function reDrawTrains() {
       wagon.marker.setLatLng(
         weightedMean([start.stop_lat,start.stop_lon],
          [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time))
+         wagon.marker.setRotationAngle(anglePoints([start.stop_lon, start.stop_lat], [end.stop_lon, end.stop_lat])- 90);
 
 
     } else
@@ -172,6 +173,9 @@ function reDrawTrains() {
       wagon.marker = L.marker(weightedMean([start.stop_lat,start.stop_lon],
        [end.stop_lat,end.stop_lon],wagon.time_to_arrive/wagon.total_time)
        , {icon: greenIcon}).addTo(railmap);
+
+       wagon.marker.setRotationAngle(anglePoints([start.stop_lon, start.stop_lat], [end.stop_lon, end.stop_lat])- 90);
+  //     wagon.marker._icon.style.transform="rotate(45deg);"
 
 
     }
