@@ -3,7 +3,7 @@
   "short_name": "geomapmultiengine",
   "icons": [
     {
-      "src": "/GeoMapMultiEngine/dist/img/icons/android-chrome-192x192.png",
+      "src": "/GeoMapMultiEngine/dist/img/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     }
