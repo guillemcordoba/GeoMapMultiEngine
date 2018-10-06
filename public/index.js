@@ -41,8 +41,8 @@ TRAINRAILS
 */
 
 function drawElements(){
-    var polylines = []
-    console.log('ohayo')
+    polylines = {}
+    decorators = {}
 
     for (route in routes){
         var stopsList = routes[route]['stops'];
@@ -56,15 +56,24 @@ function drawElements(){
 
         }
 
-        polylines.push (L.polyline(coords,{color: 'black'}).addTo(railmap));
-    }
-
-        var decorator = L.polylineDecorator(polylines, {
+        polylines[route] = L.polyline(coords,{color: 'black'}).addTo(railmap);
+        decorators[route] = L.polylineDecorator(polylines[route], {
         patterns: [
                 {offset: 10, endOffset: 10, repeat: 10,
                     symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: 'black', fillOpacity: 1, weight: 0}})}
-        ]
+        ],
         }).addTo(railmap);
+    }
+}
+
+function changeColor(route, color){
+    polylines[route].setStyle({
+        color: color
+    });
+    decorators[route].setPatterns([
+            {offset: 10, endOffset: 10, repeat: 10,
+                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: color, fillOpacity: 1, weight: 0}})}
+    ]);
 }
 
 function anglePoints(p1, p2){
