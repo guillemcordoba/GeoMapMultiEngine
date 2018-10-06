@@ -20,6 +20,7 @@ fs.readFile(file, 'utf8', function(err, data) {
         return;
       }
       if (!(line[0].startsWith('E') || line[0].startsWith('P'))) return;
+      if (line[6] !== 0) return;
       var processedLine = {};
       for (let i = 0; i < properties.length; i++) {
         processedLine[properties[i]] = line[i];

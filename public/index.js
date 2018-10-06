@@ -15,10 +15,22 @@ var coords = [
     [41.392541, 2.144408]
     ];
 
+/**
+ * STOPS
+ */
+var stopIcon = L.icon({
+    iconUrl: 'img/stop.png',
+
+     iconSize:     [12, 12], // size of the icon
+/*    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+ */});
+
 function paintStops(filePath) {
     loadJSON(filePath, function(stops) {
         Object.keys(stops).forEach(stop => {
-            L.marker([stops[stop].stop_lat, stops[stop].stop_lon]).addTo(railmap); 
+            L.marker([stops[stop].stop_lat, stops[stop].stop_lon], {icon: stopIcon}).addTo(railmap); 
         });
     });
 }
@@ -46,7 +58,6 @@ var decorator = L.polylineDecorator(polyline, {
 /*
 TRAINS
 */
-
 
 
 function loadJSON(filePath, success, error) {
