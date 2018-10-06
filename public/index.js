@@ -97,13 +97,23 @@ function drawElements(){
 }
 
 function changeColor(route, color){
-    polylines[route].setStyle({
-        color: '#' + color
-    });
-    decorators[route].setPatterns([
-            {offset: 10, endOffset: 10, repeat: 10,
-                symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: '#' + color, fillOpacity: 1, weight: 0}})}
-    ]);
+    for (var r in routes) {
+      var c = "000000"
+
+      if (r == route){
+        c = color;
+      }
+
+      // console.log(c, r);
+
+      polylines[r].setStyle({
+          color: '#' + c
+      });
+      decorators[r].setPatterns([
+              {offset: 10, endOffset: 10, repeat: 10,
+                  symbol: L.Symbol.arrowHead({pixelSize: 6, headAngle: 160, pathOptions: {color: '#' + c, fillOpacity: 1, weight: 0}})}
+      ]);
+    }
 }
 
 function anglePoints(p1, p2){
