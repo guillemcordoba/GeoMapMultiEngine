@@ -1,14 +1,14 @@
 {
-  "name": "geomapmultiengine",
-  "short_name": "geomapmultiengine",
+  "name": "GeoMapMultiEngine",
+  "short_name": "GeoMapMultiEngine",
   "icons": [
     {
-      "src": "/GeoMapMultiEngine/dist/img/icons/android-chrome-192x192.png",
+      "src": "/GeoMapMultiEngine/img/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
-  "start_url": "/GeoMapMultiEngine/dist/index.html",
+  "start_url": "/GeoMapMultiEngine/index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#4DBA87"
