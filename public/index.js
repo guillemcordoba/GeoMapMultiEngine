@@ -56,7 +56,7 @@ function loadRouteData(filePath) {
     routes = file
     drawElements();
      setInterval(function(){
-       addTime(1)
+       addTime(2)
        reDrawTrains()
      }, 100);
 
@@ -235,12 +235,12 @@ function getWagons() {
     var arrival_time = hour_to_seconds(wagon.route.stops[wagon.current_station+1].arrival_time)
       + wagon.spawned_time;
 
-    while(wagon.current_station + 1 < wagon.route.stops.length && arrival_time < seconds_from_midnight){
+    while(wagon.current_station + 2 < wagon.route.stops.length && arrival_time < seconds_from_midnight){
         wagon.current_station = wagon.current_station+1
         arrival_time = hour_to_seconds(wagon.route.stops[wagon.current_station+1].arrival_time)
           + wagon.spawned_time;
        }
-   if (wagon.current_station + 1 >= wagon.route.stops.length){
+   if (wagon.current_station + 2 >= wagon.route.stops.length){
      wagon.marker.remove()
      window.wagons.splice(wagonKey,1)
    } else {
