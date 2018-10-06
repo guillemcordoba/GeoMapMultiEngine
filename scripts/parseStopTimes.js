@@ -35,6 +35,9 @@ function generate(typeName, isTmb = false) {
     function readStops() {
 
         function stops_to_obj(data) {
+
+            if(!Array.isArray(data)) return data;
+
             var data_obj = {};
             data_obj.stop_id = data[0];
             data_obj.stop_code = data[1];
@@ -150,11 +153,6 @@ function generate(typeName, isTmb = false) {
         .on("data", function(data){
 
             var data_obj = stop_times_to_obj(data);
-
-            if(!trips[data_obj.trip_id]) {
-                return;
-            }
-
             data_obj.route_id = trips[data_obj.trip_id].route_id;
 
             //if it's not a metro ignore it
